@@ -1,26 +1,134 @@
 @import "tailwindcss";
 
+/* ================================
+   Cinematic Luxury Design System
+   Refined for Awwwards Aesthetic
+================================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Surface: #0a0a0a with atmospheric depth */
+  --background: 240 5% 4%;
+  /* #0a0a0a - Matches requirements */
+
+  /* Canvas: #F4F2EE - Bone white */
+  --foreground: 40 8% 95%;
+
+  /* Accent: #C6A87C - Aged gold/bronze */
+  --primary: 37 35% 63%;
+  --primary-foreground: 240 5% 4%;
+
+  /* Secondary: deep slate/blue for spotlight */
+  --secondary: 215 16% 17%;
+  --secondary-foreground: 40 8% 95%;
+
+  /* Muted elements */
+  --muted: 40 5% 15%;
+  --muted-foreground: 40 8% 65%;
+
+  /* Accent for highlights */
+  --accent: 37 35% 63%;
+  --accent-foreground: 240 5% 4%;
+
+  /* Card surfaces */
+  --card: 240 4% 8%;
+  --card-foreground: 40 8% 95%;
+
+  /* Popover/Dialog */
+  --popover: 240 4% 8%;
+  --popover-foreground: 40 8% 95%;
+
+  /* Borders */
+  --border: 40 5% 18%;
+  --input: 40 5% 18%;
+  --ring: 37 35% 63%;
+
+  /* Destructive states */
+  --destructive: 0 62% 50%;
+  --destructive-foreground: 40 8% 95%;
+
+  /* Border radius */
+  --radius: 0.75rem;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  /* Typography */
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-playfair);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Atmospheric Background */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: hsl(var(--background));
+  /* #0a0a0a */
+  color: hsl(var(--foreground));
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Spotlight Effect */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 60vh;
+  background: radial-gradient(circle at 50% 0%,
+      rgba(30, 41, 59, 0.2) 0%,
+      /* #1e293b at 20% */
+      transparent 80%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Enforced Display Typography */
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+}
+
+/* Massive H1 Style */
+h1 {
+  @apply text-7xl md:text-9xl tracking-[-0.05em] leading-[1.1];
+}
+
+/* Text Utilities */
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection styling */
+::selection {
+  background: hsl(var(--primary) / 0.3);
+  color: hsl(var(--foreground));
 }
