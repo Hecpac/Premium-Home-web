@@ -5,10 +5,10 @@ import {
     HeroSubtitle,
     HeroActions,
     HeroFacts,
-    Counter,
     TitleWord,
     HeroScrollCue
 } from "./HeroAnimations";
+import { StatsCounterClient } from "@/components/features/StatsCounterClient";
 import { FloorPlanOverlay } from "@/components/features/FloorPlanOverlay";
 
 export function HeroScene() {
@@ -65,12 +65,12 @@ export function HeroScene() {
                         <div className="editorial-card min-w-[300px]">
                             <div className="space-y-8">
                                 <div className="stat-block">
-                                    <Counter value={18} duration={2.5} />
+                                    <StatsCounterClient value={14} duration={2.5} />
                                     <span className="stat-label">Months Avg. Build Time</span>
                                 </div>
                                 <div className="thin-rule border-white/20" />
                                 <div className="stat-block">
-                                    <Counter value={50} prefix="$" suffix="M+" duration={3} />
+                                    <StatsCounterClient value={62} prefix="$" suffix="M+" duration={3} />
                                     <span className="stat-label">Value Delivered</span>
                                 </div>
                             </div>

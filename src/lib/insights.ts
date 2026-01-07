@@ -15,7 +15,7 @@ export interface InsightArticle {
     publishedDate: string;
 }
 
-export const insightsData: InsightArticle[] = [
+export const INSIGHTS: InsightArticle[] = [
     {
         slug: "cost-of-luxury-2026",
         title: "The True Cost of Luxury Custom Builds in 2026",
@@ -171,19 +171,19 @@ The Texas sun is brutalist architecture's greatest ally. Long shadows, intense l
  * Get all insights for listing page
  */
 export function getAllInsights(): InsightArticle[] {
-    return insightsData;
+    return INSIGHTS;
 }
 
 /**
  * Get single insight by slug
  */
 export function getInsightBySlug(slug: string): InsightArticle | undefined {
-    return insightsData.find((article) => article.slug === slug);
+    return INSIGHTS.find((article) => article.slug === slug);
 }
 
 /**
  * Get all slugs for static generation
  */
 export function getAllInsightSlugs(): string[] {
-    return insightsData.map((article) => article.slug);
+    return INSIGHTS.map((article) => article.slug);
 }

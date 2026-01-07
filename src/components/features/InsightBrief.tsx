@@ -1,28 +1,11 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-
-const articles = [
-    {
-        title: "The True Cost of Luxury Custom Builds in 2026",
-        category: "Market Analysis",
-        readTime: "4 min read",
-        slug: "/insights/cost-of-luxury-2026",
-    },
-    {
-        title: "Smart Home Integration: Beyond the Gimmicks",
-        category: "Technology",
-        readTime: "6 min read",
-        slug: "/insights/smart-home-integration",
-    },
-    {
-        title: "Concrete & Light: The New Brutalist Aesthetic",
-        category: "Design",
-        readTime: "3 min read",
-        slug: "/insights/concrete-and-light",
-    },
-];
+import { getAllInsights } from "@/lib/insights";
 
 export function InsightBrief() {
+    // Get the first 3 insights for the brief section
+    const articles = getAllInsights().slice(0, 3);
+
     return (
         <section className="section-spacing max-w-7xl mx-auto px-6">
             <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-white/10 pb-8">
@@ -36,10 +19,10 @@ export function InsightBrief() {
             </div>
 
             <div className="flex flex-col gap-0">
-                {articles.map((article, idx) => (
+                {articles.map((article) => (
                     <Link
-                        key={idx}
-                        href={article.slug}
+                        key={article.slug}
+                        href={`/insights/${article.slug}`}
                         className="group flex flex-col md:flex-row md:items-center justify-between py-10 border-b border-white/10 hover:bg-white/5 transition-colors px-4 -mx-4 rounded-sm"
                     >
                         <div className="flex flex-col gap-2">
