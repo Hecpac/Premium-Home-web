@@ -116,7 +116,7 @@ function WorkCard({
                         "relative w-full overflow-hidden rounded-sm bg-zinc-900",
                         isFeatured
                             ? "aspect-[16/10] md:aspect-[16/9]"
-                            : "aspect-[4/3]"
+                            : "aspect-[16/9]"
                     )}
                 >
                     <Image
