@@ -141,11 +141,7 @@ const jsonLd = {
       },
     },
     {
-      "@type": "LocalBusiness",
-      "@id": "https://www.premiumhome.design/#localbusiness",
-      name: "Premium Home Design",
-      image: "https://www.premiumhome.design/images/og-hero.jpg",
-      "@type": ["HomeBuilder", "GeneralContractor"],
+      "@type": ["LocalBusiness", "HomeBuilder", "GeneralContractor"],
       address: {
         "@type": "PostalAddress",
         streetAddress: "1234 Luxury Lane",

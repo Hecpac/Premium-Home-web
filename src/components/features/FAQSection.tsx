@@ -1,4 +1,10 @@
 import Script from "next/script";
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion";
 
 interface FAQItem {
     question: string;
@@ -7,29 +13,64 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
     {
-        question: "¿Cuánto cuesta construir una casa de lujo en Dallas?",
+        question: "¿Cómo es el proceso de consulta inicial?",
         answer:
-            "El costo de construir una casa de lujo personalizada en Dallas varía entre $350 y $700 por pie cuadrado, dependiendo de los acabados, tecnología smart home y complejidad arquitectónica. Nuestros proyectos típicos oscilan entre $1.5M y $8M+ para residencias de 4,000 a 12,000 sqft.",
+            "Comenzamos con una sesión de descubrimiento de 90 minutos para analizar su visión, terreno y presupuesto preliminar. No es una simple venta; es una consultoría de factibilidad donde revisamos zonificación, topografía y expectativas de diseño antes de firmar cualquier contrato. Salimos de esta reunión con una hoja de ruta clara.",
     },
     {
-        question: "¿Cuál es el proceso de construcción de Premium Home Design?",
+        question: "¿Cuál es el tiempo promedio de construcción?",
         answer:
-            "Nuestro proceso consta de 5 fases: (1) Descubrimiento y briefing, (2) Diseño arquitectónico y renders 3D, (3) Ingeniería y permisos, (4) Construcción con reportes semanales en tiempo real, (5) Entrega con garantía de 2 años. El timeline típico es de 14-18 meses.",
+            "Para residencias de lujo (4,000 - 12,000 sqft), el ciclo completo oscila entre 14 y 20 meses. Esto incluye 3-5 meses de diseño arquitectónico y permisos, y 11-15 meses de construcción física. Nuestro software de gestión nos permite mitigar retrasos por clima o cadena de suministro con proyecciones precisas.",
     },
     {
-        question: "¿Pueden integrar tecnología smart home en mi nueva casa?",
+        question: "¿Cómo garantizan la transparencia en el presupuesto?",
         answer:
-            "Sí, somos especialistas en integración de domótica de nivel enterprise. Instalamos sistemas Crestron, Control4, Lutron y Savant para control de iluminación, clima, seguridad, audio/video y automatización completa. Cada casa incluye infraestructura Cat6A y fibra óptica.",
+            "Eliminamos el misterio financiero. Operamos bajo un modelo de 'Cost-Plus' o 'Fixed Fee' transparente. Usted tiene acceso 24/7 a nuestro dashboard financiero donde ve cada factura, recibo y costo de mano de obra en tiempo real. Definimos 'allowances' realistas desde el día 1 para evitar sorpresas en acabados.",
     },
     {
-        question: "¿Trabajan en Las Colinas y Highland Park?",
+        question: "¿Se encargan de los permisos y regulaciones locales?",
         answer:
-            "Operamos en todo el área metropolitana de Dallas-Fort Worth, incluyendo Las Colinas, Highland Park, University Park, Preston Hollow, Southlake y Westlake. Cada zona tiene requisitos municipales específicos que dominamos.",
+            "Absolutamente. Tenemos amplia experiencia navegando la burocracia de Dallas, Highland Park, University Park, Westlake y Southlake. Gestionamos todas las inspecciones, ingeniería civil, estudios de suelo y aprobaciones de HOAs estrictas para que usted no tenga que lidiar con el ayuntamiento.",
     },
     {
-        question: "¿Qué hace diferente a Premium Home Design?",
+        question: "¿Qué tipo de materiales y artesanía utilizan?",
         answer:
-            "Tres diferenciadores clave: (1) Transparencia radical - acceso 24/7 a costos reales y timeline via dashboard, (2) Arquitectura de autor con materiales importados, (3) Garantía estructural de 10 años + 2 años acabados. No trabajamos con subcontratistas rotatorios; nuestros equipos son permanentes.",
+            "Solo especificamos materiales de grado arquitectónico. Desde piedra caliza Lueders cortada a medida hasta carpintería de nogal sólido y sistemas de ventanas de perfil ultra-delgado. Nuestros artesanos son equipos dedicados que llevan años trabajando con nosotros, no subcontratistas rotativos de baja calidad.",
+    },
+    {
+        question: "¿Pueden integrar tecnología Smart Home avanzada?",
+        answer:
+            "Es nuestro estándar. Diseñamos la infraestructura de bajo voltaje desde los planos. Integramos iluminación Lutron Ketra, control climático Savant/Crestron, seguridad biométrica y audio distribuido invisible. Su casa no solo será inteligente, será intuitiva y a prueba de futuro.",
+    },
+    {
+        question: "¿Qué garantía y soporte ofrecen post-entrega?",
+        answer:
+            "Ofrecemos una garantía estructural de 10 años líder en la industria, más 2 años completos en instalaciones (el doble del estándar de 1 año). Además, incluimos un programa de 'Concierge' durante los primeros 12 meses para ajustes estacionales y mantenimiento preventivo sin costo adicional.",
+    },
+    {
+        question: "¿Cómo manejan los cambios de diseño durante la obra?",
+        answer:
+            "Los cambios son naturales en proyectos custom. Utilizamos un proceso formal de 'Change Order' digital. Antes de ejecutar cualquier cambio, usted recibe un desglose exacto del impacto en costo y tiempo para su aprobación inmediata en su teléfono. Nada se hace sin su autorización explícita.",
+    },
+    {
+        question: "¿Cuál es la frecuencia de comunicación durante el proyecto?",
+        answer:
+            "Comunicación obsesiva. Recibirá un reporte ejecutivo cada viernes con fotos de progreso, hitos alcanzados y plan para la siguiente semana. Además, tendrá reuniones quincenales en sitio (o por Zoom) con su Project Manager dedicado para decisiones críticas.",
+    },
+    {
+        question: "¿Qué diferencia a Premium Home Design de otros constructores?",
+        answer:
+            "Unimos la disciplina de la ingeniería comercial con la estética del diseño de lujo. Donde otros ven 'caos de construcción', nosotros vemos logística de precisión. Nuestro enfoque en 'Confianza Operacional' significa que nunca tendrá que adivinar dónde está su dinero o cuándo terminará su casa.",
+    },
+    {
+        question: "¿En qué áreas específicas de Dallas construyen?",
+        answer:
+            "Nos enfocamos en el corredor inmobilario prime: Preston Hollow, Park Cities (Highland Park/University Park), Lakewood, Midway Hollow, y hacia el norte en Las Colinas, Southlake y Westlake. Conocemos los micro-mercados y regulaciones de cada uno de estos distritos exclusivos.",
+    },
+    {
+        question: "¿Qué incluye la visita agendada desde la web?",
+        answer:
+            "La visita 'Book a Visit' no es un tour de ventas. Es un recorrido privado por una de nuestras obras activas o recién terminadas. Verá lo que hay detrás de las paredes: la calidad del aislamiento, la limpieza del sitio, la organización del cableado y los detalles que las fotos no pueden mostrar.",
     },
 ];
 
@@ -50,7 +91,7 @@ const faqJsonLd = {
 export function FAQSection() {
     return (
         <section
-            className="max-w-4xl mx-auto py-24 px-6"
+            className="max-w-4xl mx-auto py-24 px-6 relative"
             aria-labelledby="faq-heading"
         >
             {/* FAQPage JSON-LD */}
@@ -62,26 +103,19 @@ export function FAQSection() {
 
             <h2
                 id="faq-heading"
-                className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl text-[hsl(var(--foreground))] mb-12 text-center"
+                className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl text-[hsl(var(--foreground))] mb-16 text-center"
             >
                 Preguntas Frecuentes
             </h2>
 
-            <div className="space-y-8">
+            <Accordion type="single" collapsible className="w-full">
                 {faqs.map((faq, index) => (
-                    <article
-                        key={index}
-                        className="border-b border-white/10 pb-8 last:border-b-0"
-                    >
-                        <h3 className="font-[family-name:var(--font-playfair)] text-xl md:text-2xl text-[hsl(var(--foreground))] mb-3">
-                            {faq.question}
-                        </h3>
-                        <p className="text-[hsl(var(--muted-foreground))] leading-relaxed">
-                            {faq.answer}
-                        </p>
-                    </article>
+                    <AccordionItem key={index} value={`item-${index}`}>
+                        <AccordionTrigger>{faq.question}</AccordionTrigger>
+                        <AccordionContent>{faq.answer}</AccordionContent>
+                    </AccordionItem>
                 ))}
-            </div>
+            </Accordion>
         </section>
     );
 }
