@@ -61,6 +61,15 @@ const WORKS_DATA: WorkItem[] = [
         year: "2024",
         slug: "southlake-manor",
     },
+    {
+        id: "07",
+        title: "Modern Sanctuary",
+        category: "Residences",
+        location: "Dallas, TX",
+        image: "/images/selected-works/new-project.png",
+        year: "2026",
+        slug: "modern-sanctuary",
+    },
 ];
 
 // ============================================================================
